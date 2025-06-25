@@ -41,7 +41,7 @@ export default function Navbar() {
             <div className="flex h-16 items-center justify-between">
                 <div className="flex items-center">
                     <div className="shrink-0">
-                        <Image
+                        <img
                             alt="Your Company"
                             src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500"
                             className="size-8"
@@ -82,7 +82,7 @@ export default function Navbar() {
                                 <MenuButton className="relative flex max-w-xs items-center rounded-full bg-gray-800 text-sm focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 focus:outline-hidden">
                                     <span className="absolute -inset-1.5" />
                                     <span className="sr-only">Open user menu</span>
-                                    <Image alt={user?.name as string} src={user.imageUrl as string} className="size-8 rounded-full" />
+                                    <img alt={user?.name as string} src={user.imageUrl as string} className="size-8 rounded-full" />
                                 </MenuButton>
                             </div>
                             <MenuItems
@@ -136,7 +136,7 @@ export default function Navbar() {
             <div className="border-t border-gray-700 pt-4 pb-3">
                 <div className="flex items-center px-5">
                     <div className="shrink-0">
-                        <Image alt={user?.name as string} src={user?.imageUrl as string} className="size-10 rounded-full" />
+                        <img alt={user?.name as string} src={user?.imageUrl as string} className="size-10 rounded-full" />
                     </div>
                     <div className="ml-3">
                         <div className="text-base/5 font-medium text-white">{user.name}</div>
@@ -173,7 +173,7 @@ export default function Navbar() {
             <div className="flex h-16 items-center justify-between">
                 <div className="flex items-center">
                     <div className="shrink-0">
-                        <Image className="size-8"
+                        <img className="size-8"
                              src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500"
                              alt="Your Company"/>
                     </div>
@@ -212,7 +212,7 @@ export default function Navbar() {
                                         id="user-menu-button" aria-expanded="false" aria-haspopup="true">
                                     <span className="absolute -inset-1.5"></span>
                                     <span className="sr-only">Open user menu</span>
-                                    <Image className="size-8 rounded-full"
+                                    <img className="size-8 rounded-full"
                                          src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
                                          alt=""/>
                                 </button>
@@ -257,7 +257,7 @@ export default function Navbar() {
             <div className="border-t border-gray-700 pt-4 pb-3">
                 <div className="flex items-center px-5">
                     <div className="shrink-0">
-                        <Image className="size-10 rounded-full"
+                        <img className="size-10 rounded-full"
                              src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
                              alt=""/>
                     </div>
