@@ -2,7 +2,6 @@
 
 import React from "react";
 import Navbar from "@/app/lib/ui/layouts/navbar";
-import {useSession} from "next-auth/react";
 
 
 export default function DashboardLayout({ children }: { children?: React.ReactNode }) {

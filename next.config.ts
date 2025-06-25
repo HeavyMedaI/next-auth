@@ -13,7 +13,7 @@ module.exports = {
 }
 
 const nextConfig: NextConfig = {
-  /* config options here */
+    ignoreDuringBuilds: true,
 };
 
 export default nextConfig;

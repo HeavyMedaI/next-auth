@@ -1,7 +1,6 @@
 "use server"
 
-import {auth, signIn} from "@/app/auth";
-import {ProviderId} from "next-auth/providers";
+import {signIn} from "@/app/auth";
 import {CredentialsSignin} from "next-auth";
 
 export async function loginAction(d: FormData) {
@@ -19,7 +18,7 @@ export async function loginWithCredentials(stake, data: FormData) {
             "email": data.get("email"),
             "password": data.get("password"),
             "callbackUrl": data.get("callbackUrl"),
-            "redirectTo": data.get("redirectTo"),
+            "redirectTo": data.get("redirectTo")?.toString(),
             redirect: false,
         });
 
@@ -42,7 +41,7 @@ export async function loginWithCredentials(stake, data: FormData) {
 
         return {
             success: false,
-            message: err.message,
+            message: (err as Error).message,
         };
     }
 

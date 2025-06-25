@@ -1,19 +1,17 @@
 "use client"
 
-import {useActionState, startTransition} from "react";
-import BlinkBlur from "react-loading-indicators/BlinkBlur";
-import {redirect} from "next/navigation";
-import {loginWithAuth0, loginWithCredentials, loginWithOAuth} from "@/app/lib/actions/auth";
-import {auth} from "@/app/auth";
+import {startTransition} from "react";
+import {loginWithOAuth} from "@/app/lib/actions/auth";
 import { signIn } from 'next-auth/react';
 import LoginForm from "@/app/lib/ui/login-form";
+import Image from "next/image";
 
-export default function Page({children}: {children: React.ReactNode}) {
+export default function Page() {
     /*HTML VERSION*/
     return (
         <>
             <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-                <img className="mx-auto h-10 w-auto"
+                <Image className="mx-auto h-10 w-auto"
                      src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600"
                      alt="Your Company"/>
                 <h2 className="mt-10 text-center text-2xl/9 font-bold tracking-tight text-gray-900">Hesabınıza giriş yapın.</h2>

@@ -4,8 +4,7 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import Auth0Provider from "next-auth/providers/auth0";
 import GitHub from "next-auth/providers/github";
 import {Provider} from "next-auth/providers"
-import type {NextRequest} from "next/server";
-import {CredentialsSignin} from "next-auth";
+import {NextAuthConfig} from "next-auth";
 
 const authProviders: Provider[] = [
     CredentialsProvider({
@@ -19,8 +18,8 @@ const authProviders: Provider[] = [
                 email: { label: "Eposta", type: "email", placeholder: "ornek@eposta.com" },
                 password: { label: "Şifre", type: "password" }
             },
-            async signIn() {},
-            async authorize(credentials, req) {
+            //async signIn() {},
+            async authorize(credentials, req: Request): Promise<any> {
                 // You need to provide your own logic here that takes the credentials
                 // submitted and returns either a object representing a user or value
                 // that is false/null if the credentials are invalid.
@@ -33,6 +32,8 @@ const authProviders: Provider[] = [
                     headers: { "Content-Type": "application/json" }
                 })*/
 
+                console.log(req.url);
+
                 console.log('credentials: ');
                 console.log(credentials);
 
@@ -44,9 +45,12 @@ const authProviders: Provider[] = [
 
                 let user = null;
 
+                const cred_email = credentials.email as string;
+                const cred_password = credentials.password as string;
+
                 for (const _user of users) {
-                    if (_user.email.toString().toLowerCase() == credentials.email.toString().toLowerCase()
-                        && _user.password.toString() == credentials.password.toString()) {
+                    if (_user.email.toString().toLowerCase() == cred_email.toLowerCase()
+                        && _user.password.toString() == cred_password) {
                         user = _user;
                         break;
                     }
@@ -66,7 +70,7 @@ const authProviders: Provider[] = [
     GitHub
 ]
 
-export const NextAuthOptions = {
+export const NextAuthOptions: NextAuthConfig = {
     providers: authProviders,
     pages: {
         signIn: '/oturum/giris',
@@ -80,10 +84,12 @@ export const NextAuthOptions = {
             return token
         },
         async session({ session, token, user }) {
-            session.accessToken = token.accessToken
-            return session
+            return {
+                ...session,
+                accessToken: token.accessToken
+            }
         },
-        authorized: async ({ auth }: {auth: any}) => {
+        authorized: async ({ auth }) => {
             return !!auth
         },
     }
