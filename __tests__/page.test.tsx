@@ -9,10 +9,10 @@ describe('Page', () => {
         expect(img).toBeInTheDocument()
     })
 
-    it('renders deploy button', () => {
+    it('renders panel button', () => {
         render(<Page />)
-        const button = screen.getByText('Deploy now')
+        const button = screen.getByText('Panele Git')
         expect(button).toBeInTheDocument()
-        expect(button).toHaveAttribute('href', 'https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app')
+        expect(button).toHaveAttribute('href', '/dashboard')
     })
 })
