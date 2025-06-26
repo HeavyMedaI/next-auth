@@ -12,7 +12,8 @@ export default function LoginForm() {
 
     if (!isPending && session?.success === true) {
         setTimeout(() => {
-            redirect(session.redirectTo);
+            //redirect(session.redirectTo);
+            location.href = session.redirectTo;
         }, 500);
     }
 
