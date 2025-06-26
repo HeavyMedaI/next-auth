@@ -4,8 +4,8 @@ module.exports = {
     async redirects() {
         return [
             {
-                source: '/auth',
-                destination: '/auth/login',
+                source: '/oturum',
+                destination: '/oturum/giris',
                 permanent: true,
             },
         ]
